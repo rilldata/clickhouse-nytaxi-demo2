@@ -1,0 +1,11 @@
+# Connector YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/connectors
+  
+type: connector
+
+driver: clickhouse
+host: "l3e2nu99sw.us-east-1.aws.clickhouse.cloud"
+port: "8443"
+username: "default"
+password: "{{ .vars.connector.clickhouse.password }}"
+ssl: true

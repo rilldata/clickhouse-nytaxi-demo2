@@ -1,0 +1,101 @@
+# Dashboard YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/dashboards
+# This file was generated using AI.
+
+type: metrics_view
+title: Metrics for Trip Data Analysis
+table: trip_data_rolled_nonutc
+timeseries: pickup_datetime
+dimensions:
+  - label: Vendor Id
+    column: vendor_id
+    description: ""
+  - label: Payment Type
+    column: payment_type
+    description: ""
+measures:
+  - name: avg_trip_distance
+    label: Average Trip Distance
+    expression: SUM(trip_distance)/COUNT(*)
+    description: The average distance covered by a trip.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: average_fare_amount
+    label: Average Fare Amount
+    expression: AVG(fare_amount)
+    description: The average fare amount per trip.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: max_tip_amount
+    label: Maximum Tip Amount
+    expression: MAX(tip_amount)
+    description: The highest tip amount given in a trip.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_tolls_amount
+    label: Total Tolls Amount
+    expression: SUM(tolls_amount)
+    description: The total tolls amount paid for all trips.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: average_total_amount
+    label: Average Total Amount
+    expression: AVG(total_amount)
+    description: The average total amount paid per trip.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: min_trip_distance
+    label: Minimum Trip Distance
+    expression: MIN(trip_distance)
+    description: The shortest distance covered in a trip.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_trips
+    label: Total Trips
+    expression: COUNT(*)
+    description: The total number of trips recorded.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: average_passenger_to_distance_ratio
+    label: Average Passenger to Distance Ratio
+    expression: AVG(passenger_count / trip_distance)
+    description: The average ratio of passengers to distance traveled.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: average_passenger_count
+    label: Average Passenger Count
+    expression: AVG(passenger_count)
+    description: The average number of passengers per trip.
+    format_preset: humanize
+    valid_percent_of_total: false
+
+available_time_zones:
+  - America/Los_Angeles
+  - America/Chicago
+  - America/New_York
+  - Europe/London
+  - Europe/Paris
+  - Asia/Jerusalem
+  - Europe/Moscow
+  - Asia/Kolkata
+  - Asia/Shanghai
+  - Asia/Tokyo
+  - Australia/Sydney
+available_time_ranges:
+  - PT6H
+  - PT24H
+  - P7D
+  - P14D
+  - P4W
+  - P3M
+  - P12M
+  - rill-TD
+  - rill-WTD
+  - rill-MTD
+  - rill-QTD
+  - rill-YTD
+  - rill-PDC
+  - rill-PWC
+  - rill-PMC
+  - rill-PQC
+  - rill-PYC

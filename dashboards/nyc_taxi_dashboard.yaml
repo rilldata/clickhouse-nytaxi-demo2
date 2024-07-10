@@ -1,0 +1,110 @@
+# Dashboard YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/dashboards
+# This file was generated using AI.
+
+type: metrics_view
+title: NYC Taxi Metrics
+database_schema: test_database
+table: nyc_taxi
+timeseries: pickup_datetime
+dimensions:
+  - label: Payment Type
+    column: payment_type
+    description: ""
+  - label: Pickup Ntaname
+    column: pickup_ntaname
+    description: ""
+  - label: Dropoff Ntaname
+    column: dropoff_ntaname
+    description: ""
+measures:
+  - name: average_passenger_count
+    label: Average Passenger Count per Vehicle
+    expression: sum(passenger_count)/count(*)
+    description: The average number of passengers per trip.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_trip_distance
+    label: Total Trip Distance
+    expression: SUM(trip_distance)
+    description: The sum of all trip distances.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: average_fare_amount
+    label: Average Fare Amount
+    expression: AVG(fare_amount)
+    description: The average fare amount per trip.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: max_tip_amount
+    label: Maximum Tip Amount
+    expression: MAX(tip_amount)
+    description: The highest tip amount given for a trip.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_tolls_amount
+    label: Total Tolls Amount
+    expression: SUM(tolls_amount)
+    description: The total amount of tolls paid for all trips.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: average_total_amount
+    label: Average Total Amount
+    expression: AVG(total_amount)
+    description: The average total amount paid for trips.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_trips
+    label: Total Trips
+    expression: COUNT(trip_id)
+    description: The total number of trips recorded.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: average_trip_duration
+    label: Average Trip Duration
+    expression: AVG(dropoff_datetime - pickup_datetime)
+    description: The average duration of trips in seconds.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: max_fare_amount
+    label: Maximum Fare Amount
+    expression: MAX(fare_amount)
+    description: The highest fare amount paid for a trip.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: average_extra_amount
+    label: Average Extra Amount
+    expression: AVG(extra)
+    description: The average extra charges added to the fare.
+    format_preset: humanize
+    valid_percent_of_total: false
+available_time_zones:
+  - America/Los_Angeles
+  - America/Chicago
+  - America/New_York
+  - Europe/London
+  - Europe/Paris
+  - Asia/Jerusalem
+  - Europe/Moscow
+  - Asia/Kolkata
+  - Asia/Shanghai
+  - Asia/Tokyo
+  - Australia/Sydney
+available_time_ranges:
+  - PT6H
+  - PT24H
+  - P7D
+  - P14D
+  - P4W
+  - P3M
+  - P12M
+  - rill-TD
+  - rill-WTD
+  - rill-MTD
+  - rill-QTD
+  - rill-YTD
+  - rill-PDC
+  - rill-PWC
+  - rill-PMC
+  - rill-PQC
+  - rill-PYC
